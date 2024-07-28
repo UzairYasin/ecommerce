@@ -2,32 +2,182 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar-links{
+  @apply flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  dark:border-gray-700;
+}
+
+.navbar-link{
+  @apply block py-2 px-3 md:text-lg md:my-0 my-2  text-2xl md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700
+}
+
+.filters{
+  @apply flex justify-between md:my-7 my-5;
+}
+.price_filter{
+  @apply h-10
+}
+.search_filter{
+  @apply lg:w-[380px] md:w-[320px] w-[150px]
+}
+
+.product-box {
+  @apply max-w-sm sm:mx-0 sm:min-w-[250px] min-w-[350px] border-solid border-[2px] border-violet-700/100 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700 transform hover:scale-105 transition duration-500
+}
+
+.product-img{
+  @apply pt-3
+}
+
+.product-img img {
+max-width: 100%;
+height: 220px;  
+transition: all 0.3s ease-in-out;
+} 
+
+
+.product-price-box{
+  @apply flex justify-between items-center py-2 px-0 
+}
+.product-spec{
+  border-bottom: 1px;
+@apply border-solid border-blue-700
+}
+.product-colors ul{
+  @apply inline-flex items-center my-2
+}
+.product-colors ul li{
+@apply w-5 h-5 rounded-full mr-2 border cursor-pointer
+}
+.product-cart Button{
+  @apply inline-flex items-center px-3 py-2 text-sm font-medium text-center rounded-full bg-black text-white
+  hover:bg-gray-800
+}
+
+.category_name{
+  @apply text-sm font-semibold text-gray-800 dark:text-white
+}
+
+/* components/BackToTopButton.module.css */
+.backToTopButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 80px; /* Adjust size as needed */
+  height: 80px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progressCircle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(black 0%, transparent 0%);
+  padding: 3px; /* Space for the outer black border */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  border: 2px solid black; /* Outer black border */
+}
+
+.progressCircle:before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: calc(100% - 12px); /* Subtract double the padding */
+  height: calc(100% - 12px);
+  border-radius: 50%;
+  border: 2px solid black; /* Inner black border */
+  box-sizing: border-box;
+}
+
+.innerCircle {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: calc(100% - 16px); /* Subtract the space for borders and padding */
+  height: calc(100% - 16px);
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  color: black;
+  font-size: 24px;
 }

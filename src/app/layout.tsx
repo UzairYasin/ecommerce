@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+// import { ContextApi } from "./components/context";
+import TopLoader from "./components/TopLoader";
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs"
+import { ClerkProvider } from "@clerk/nextjs";
+import CartProvider from "./components/Providers/CartProvider";
+import BackToTopButton from "./components/BackToTop";
+// import ShoppingCartModal from "./components/ShoppingCartModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +24,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <ClerkProvider>   
+        <html lang="en" suppressHydrationWarning>
+          <body className={inter.className}>
+            {/* <TopLoader /> */}
+
+            <CartProvider>
+            <Navbar signIn={
+              <>
+                  <SignInButton />
+              </>
+            }
+              signUp={
+                <>
+                    <SignUpButton />
+                </>
+              }
+            />         
+            
+              {children}
+            </CartProvider>
+
+            <Footer />
+            <BackToTopButton />
+          </body>
+        </html>
+        </ClerkProvider>
+    
   );
 }
