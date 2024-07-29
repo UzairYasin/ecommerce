@@ -1,9 +1,18 @@
+"use client"
 import { Button } from '@/components/ui/button'
 import { CheckIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useShoppingCart } from 'use-shopping-cart'
 
 const Page = () => {
+
+  const { clearCart } = useShoppingCart();
+
+  useEffect(() => {
+    clearCart();
+  }, [ clearCart]);
+  
   return (
     <>
     <div className="my-20 text-center">
