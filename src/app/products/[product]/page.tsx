@@ -246,9 +246,8 @@ const Page = ({ params }: ProductPageProps) => {
                       {product.colorVariations.map((variation, index) => (
                         <li
                           key={index}
-                          className={`color-circle bg-[${variation.colorCode}]
-                          ${selectedVariation === variation ? ' border-red-500 border-8' : ''
-                            }`}
+                          className={`color-circle ${selectedVariation === variation ? ' border-red-500 border-8' : ''}`}
+                          style={{ backgroundColor: variation.colorCode }}
                           onClick={() => handleColor(variation)}
                         ></li>
                       ))}
