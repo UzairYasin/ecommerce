@@ -10,6 +10,7 @@ const ProductDetailData = async (productSlug: string) => {
         price,
         colorVariations[]{
           color,
+          colorCode,
           "imageUrl": image.asset->url,
           stock
         },
