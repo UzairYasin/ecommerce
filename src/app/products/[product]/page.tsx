@@ -250,11 +250,6 @@ const Page = ({ params }: ProductPageProps) => {
                           ${selectedVariation === variation ? ' border-red-500 border-8' : ''
                             }`}
                           onClick={() => handleColor(variation)}
-                          style={
-                            variation.color !== 'black' && variation.color !== 'white'
-                              ? { backgroundColor: variation.color, opacity: 0.6 }
-                              : { backgroundColor: variation.color }
-                          }
                         ></li>
                       ))}
                     </ul>
