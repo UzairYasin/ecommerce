@@ -12,8 +12,7 @@ import { useRouter } from 'next/navigation';
 
 import Image from "next/image";
 import { useShoppingCart } from "use-shopping-cart";
-const {userId} = useAuth();
-  const router = useRouter();
+
 
 export default function ShoppingCartModal() {
   const {
@@ -25,6 +24,8 @@ export default function ShoppingCartModal() {
     totalPrice,
     redirectToCheckout,
   } = useShoppingCart();
+  const {userId} = useAuth();
+  const router = useRouter();
 
   async function handleCheckoutClick(event: any) {
     event.preventDefault();
