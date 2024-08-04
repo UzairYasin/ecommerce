@@ -4,13 +4,18 @@ import { CheckIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 import React, { useEffect } from 'react'
 import { useShoppingCart } from 'use-shopping-cart'
+import {useRouter} from 'next/navigation'
 
 const Page = () => {
 
   const { clearCart } = useShoppingCart();
+  const router = useRouter();
 
   useEffect(() => {
     clearCart();
+    setTimeout(() => {
+    router.push('/');    
+    }, 3000);
   }, [ clearCart]);
   
   return (
