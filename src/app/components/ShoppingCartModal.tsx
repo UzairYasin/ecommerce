@@ -7,9 +7,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { useAuth } from '@clerk/nextjs';
-import { useRouter } from 'next/navigation';
-
 import Image from "next/image";
 import { useShoppingCart } from "use-shopping-cart";
 
@@ -24,15 +21,10 @@ export default function ShoppingCartModal() {
     totalPrice,
     redirectToCheckout,
   } = useShoppingCart();
-  const {userId} = useAuth();
-  const router = useRouter();
+
 
   async function handleCheckoutClick(event: any) {
     event.preventDefault();
-    if (!userId) {
-    router.push('/sign-up');
-    return 0;
-    }
     try {
       const result = await redirectToCheckout();
       if (result?.error) {
