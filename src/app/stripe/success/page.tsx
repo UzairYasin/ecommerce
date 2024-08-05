@@ -11,12 +11,19 @@ const Page = () => {
   const { clearCart } = useShoppingCart();
   const router = useRouter();
 
-  useEffect(() => {
-    clearCart();
-    setTimeout(() => {
-    router.push('/');    
-    }, 3000);
-  }, [ clearCart]);
+useEffect(() => {
+    try {
+      clearCart();
+      const timer = setTimeout(() => {
+        router.push('/');
+      }, 3000);
+
+      // Cleanup function to clear the timer if the component unmounts
+      return () => clearTimeout(timer);
+    } catch (error) {
+      console.error('An error occurred while clearing the cart or redirecting:', error);
+    }
+  }, [clearCart, router]);
   
   return (
     <>
