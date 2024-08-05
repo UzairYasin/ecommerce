@@ -11,7 +11,8 @@ const CartProvider = ({ children }: { children: ReactNode}) => {
             currency='USD'
             successUrl='http://cartlon.vercel.app/stripe/success'
             cancelUrl='http://cartlon.vercel.app/stripe/error'
-            billingAddressCollection={false}
+            billingAddressCollection={true}
+            shipping_address_collection: {allowed_countries: ['US'],}
             shouldPersist={true}
             language='en-US'
         >
