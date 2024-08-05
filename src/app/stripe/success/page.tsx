@@ -2,28 +2,26 @@
 import { Button } from '@/components/ui/button'
 import { CheckIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useShoppingCart } from 'use-shopping-cart'
-import {useRouter} from 'next/navigation'
 
 const Page = () => {
 
   const { clearCart } = useShoppingCart();
-  const router = useRouter();
+  const hasClearedCart = useRef(false); // Ref to track if cart has been cleared
 
-useEffect(() => {
-    try {
-      clearCart();
-      const timer = setTimeout(() => {
-        router.push('/');
-      }, 3000);
+  useEffect(() => {
+    const handleClearCart = () => {
+      if (!hasClearedCart.current) {
+        clearCart();
+        hasClearedCart.current = true; // Set ref to true after clearing cart
+      }
+    };
 
-      // Cleanup function to clear the timer if the component unmounts
-      return () => clearTimeout(timer);
-    } catch (error) {
-      console.error('An error occurred while clearing the cart or redirecting:', error);
-    }
-  }, [clearCart, router]);
+    // Call the function to clear the cart
+    handleClearCart();
+  }, [clearCart]); // Dependency array ensures it's only called once
+ 
   
   return (
     <>
