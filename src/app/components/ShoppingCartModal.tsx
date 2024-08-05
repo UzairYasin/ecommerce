@@ -9,6 +9,8 @@ import {
 } from "@/components/ui/sheet";
 import Image from "next/image";
 import { useShoppingCart } from "use-shopping-cart";
+import { useAuth } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 
 
 export default function ShoppingCartModal() {
@@ -21,10 +23,16 @@ export default function ShoppingCartModal() {
     totalPrice,
     redirectToCheckout,
   } = useShoppingCart();
-
+  const {userId} = useAuth();
+  const router = useRouter()
 
   async function handleCheckoutClick(event: any) {
     event.preventDefault();
+    if (!userId) {
+      console.log('Redirecting to signup...');
+      router.push('/sign-up');
+      return; // Add return to prevent further code execution
+    }
     try {
       const result = await redirectToCheckout();
       if (result?.error) {
