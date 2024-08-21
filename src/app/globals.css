@@ -91,7 +91,7 @@
 }
 
 .product-box {
-  @apply max-w-sm sm:mx-0 sm:min-w-[250px] min-w-[350px] border-solid border-[2px] border-violet-700/100 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700 transform hover:scale-105 transition duration-500
+  @apply max-w-sm sm:mx-0 sm:min-w-[250px] min-w-[350px] border-solid border-[2px] border-[#d7e5ec] rounded-xl shadow dark:bg-gray-800 dark:border-gray-700 transform hover:scale-105 transition duration-500
 }
 
 .product-img{
