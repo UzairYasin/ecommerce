@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1725468568518,
+      "tag": "0000_dark_eternals",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1725900084698,
+      "tag": "0001_tidy_randall_flagg",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1726078100934,
+      "tag": "0002_tense_strong_guy",
+      "breakpoints": true
+    }
+  ]
+}

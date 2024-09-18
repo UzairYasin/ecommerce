@@ -2,22 +2,15 @@ import { Button } from '@/components/ui/button'
 import React, { useState } from 'react'
 import { useShoppingCart } from 'use-shopping-cart'
 import { ProductCartProps } from './AddToBag';
-import { useAuth } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 
 export default function CheckoutNow({ price_id, color, name, description, price, image, currency }: ProductCartProps) {
 
   const { checkoutSingleItem } = useShoppingCart();
   const [isLoading, setIsLoading] = useState(false);
-  const {userId} = useAuth();
   const router = useRouter();
 
  async function buyNow(priceId: string) {
-
-    if (!userId) {
-    router.push('/sign-up');
-      return 0;
-    }
 
     setTimeout(() => {
     setIsLoading(true);
