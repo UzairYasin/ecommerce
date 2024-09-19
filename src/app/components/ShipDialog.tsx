@@ -37,6 +37,10 @@ export default function ShipDialog({ order }: { order: OrderProps }) {
                     shipping_status: 'shipped'
                 })
             })
+
+            if (!res.ok) {
+                throw new Error("failed shipment")
+            }
             
         } catch (error) {
             console.log(error)
