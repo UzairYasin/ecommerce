@@ -16,7 +16,7 @@ export async function POST(req: Request) {
       to: body.email,
       subject: "Email Verification",
       html: `<h1>Verify Your Email</h1>
-          <a href="http://localhost:3000/signin?token=${body.token}" >
+          <a href="https://cartlonecommerce.vercel.app/signin?token=${body.token}" >
           <button class='px-4 py-2 rounded-xl bg-black text-white' >Verify</button>
           </a>`
     });
