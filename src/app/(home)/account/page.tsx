@@ -83,9 +83,9 @@ const Page = async () => {
                         <Table>
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead className="hidden w-[100px] sm:table-cell">
+{/*                                     <TableHead className="hidden w-[100px] sm:table-cell">
                                         <span className="sr-only">Image</span>
-                                    </TableHead>
+                                    </TableHead> */}
                                     <TableHead>Name</TableHead>
                                     <TableHead>Status</TableHead>
                                     <TableHead>Price</TableHead>
@@ -103,7 +103,7 @@ const Page = async () => {
                             <TableBody>
                                 {myOrders.map((order: OrderProps) => (
                                     <TableRow key={order.id}>
-                                        <TableCell className="hidden sm:table-cell">
+{/*                                         <TableCell className="hidden sm:table-cell">
                                             <Image
                                                 alt="Product image"
                                                 className="aspect-square rounded-md object-cover"
@@ -111,7 +111,7 @@ const Page = async () => {
                                                 src="/placeholder.svg"
                                                 width="64"
                                             />
-                                        </TableCell>
+                                        </TableCell> */}
                                         <TableCell className="font-medium line">
                                             {order.orderItems.map(item => item.name).join(', ')}
                                         </TableCell>
