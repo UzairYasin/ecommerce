@@ -79,11 +79,16 @@ const OrdersTable =
                         case 'month':
                             return now.getMonth() === orderDate.getMonth() && now.getFullYear() === orderDate.getFullYear();
                         case 'year':
-                            return now.getFullYear === orderDate.getFullYear;
+                            return now.getFullYear() === orderDate.getFullYear();
                         default:
                             return true;
                     }
                 })();
+
+                console.log('Current time:', now);
+                console.log('Order time:', orderDate);
+                console.log('Time condition met:', timeCondition);
+
 
                 // Filter by order status
                 const statusCondition = (() => {
@@ -125,14 +130,14 @@ const OrdersTable =
 
         const copy = (type: string) => {
 
-            if(type === 'Order Id '){
+            if (type === 'Order Id ') {
                 navigator.clipboard.writeText(String(selectedOrder?.id))
             }
-            if(type === 'Tracking Id '){
+            if (type === 'Tracking Id ') {
                 navigator.clipboard.writeText(selectedOrder?.tracking_id as string)
             }
-            
-            return toast.success(type+"Copied")
+
+            return toast.success(type + "Copied")
         }
 
         return (
@@ -478,23 +483,23 @@ const OrdersTable =
                             <div className="ml-auto flex items-center gap-1">
                                 {selectedOrder.tracking_id ?
                                     (
-                                    <>
-                                        <CardTitle className="group flex items-center gap-2 text-sm">
-                                            <Button size={'md'} variant={'outline'}>
-                                            Track Order
-                                            </Button>
-                                            <Button
-                                                size="icon"
-                                                variant="outline"
-                                                className="h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100"
-                                                value={selectedOrder.tracking_id}
-                                                onClick={() => copy("Tracking Id ")}
-                                            >
-                                                <Copy className="h-3 w-3" />
-                                                <span className="sr-only">Copy Order ID</span>
-                                            </Button>
-                                        </CardTitle>
-                                    </>) :
+                                        <>
+                                            <CardTitle className="group flex items-center gap-2 text-sm">
+                                                <Button size={'md'} variant={'outline'}>
+                                                    Track Order
+                                                </Button>
+                                                <Button
+                                                    size="icon"
+                                                    variant="outline"
+                                                    className="h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100"
+                                                    value={selectedOrder.tracking_id}
+                                                    onClick={() => copy("Tracking Id ")}
+                                                >
+                                                    <Copy className="h-3 w-3" />
+                                                    <span className="sr-only">Copy Order ID</span>
+                                                </Button>
+                                            </CardTitle>
+                                        </>) :
                                     (
                                         <ShipDialog order={selectedOrder} />
                                     )
