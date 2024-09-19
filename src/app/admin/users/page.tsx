@@ -36,7 +36,7 @@ const Page = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const data = await fetch('https://cartlonecommerce.vercel.app/api/users', {cache: 'no-store'});
+      const data = await fetch('https://cartlon.vercel.app/api/users', {cache: 'no-store'});
       const users = await data.json();
       setUsers(users)
     }

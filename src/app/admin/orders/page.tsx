@@ -66,7 +66,7 @@ const Orders = async() => {
         redirect('/signin')
     }
 
-    const data = await fetch('https://cartlonecommerce.vercel.app/api/orders', {cache: "no-store"});   
+    const data = await fetch('https://cartlon.vercel.app/api/orders', {cache: "no-store"});   
     const orders:OrderProps[] = await data.json();
 
     return (

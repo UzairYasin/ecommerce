@@ -9,8 +9,8 @@ const CartProvider = ({ children }: { children: ReactNode}) => {
             cartMode='client-only'
             stripe={process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string}
             currency='USD'
-            successUrl='https://cartlonecommerce.vercel.app/stripe/success'
-            cancelUrl='https://cartlonecommerce.vercel.app/stripe/error'
+            successUrl='https://cartlon.vercel.app/stripe/success'
+            cancelUrl='https://cartlon.vercel.app/stripe/error'
             billingAddressCollection={true}
             shouldPersist={true}
             language='en-US'

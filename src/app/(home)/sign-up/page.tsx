@@ -35,7 +35,7 @@ const Page = () => {
       
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(password, salt);
-      const response = await fetch('https://cartlonecommerce.vercel.app/api/users', {
+      const response = await fetch('https://cartlon.vercel.app/api/users', {
 
         method: 'POST',
 
@@ -60,7 +60,7 @@ const Page = () => {
       if (responseData.message === 'Token generated.') {
         console.log(responseData.message)
         try {
-          await fetch('https://cartlonecommerce.vercel.app/api/users', {
+          await fetch('https://cartlon.vercel.app/api/users', {
             method: 'PUT',
             body: JSON.stringify({
               name: name,
@@ -80,7 +80,7 @@ const Page = () => {
         }
   
         try {
-          await fetch('https://cartlonecommerce.vercel.app/api/email', {
+          await fetch('https://cartlon.vercel.app/api/email', {
             method: 'POST',
             body: JSON.stringify({
               email: email,
