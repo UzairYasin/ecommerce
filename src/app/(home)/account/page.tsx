@@ -83,9 +83,9 @@ const Page = async () => {
                         <Table>
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead className="hidden w-[100px] sm:table-cell">
+{/*                                     <TableHead className="hidden w-[100px] sm:table-cell">
                                         <span className="sr-only">Image</span>
-                                    </TableHead>
+                                    </TableHead> */}
                                     <TableHead>Name</TableHead>
                                     <TableHead>Status</TableHead>
                                     <TableHead>Price</TableHead>
