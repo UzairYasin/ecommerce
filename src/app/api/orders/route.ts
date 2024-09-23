@@ -1,6 +1,7 @@
 import { db, orderItems, orders } from "@/lib/schema";
 import { desc, eq } from "drizzle-orm";
-import { NextResponse } from "next/server";
+import { NextApiRequest } from "next";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
 
@@ -21,7 +22,7 @@ export async function GET() {
 
 }
 
-export async function PUT(req: Request) {
+export async function PUT(req: NextRequest) {
 
     const body = await req.json();
 
