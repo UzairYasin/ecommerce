@@ -85,11 +85,6 @@ const OrdersTable =
                     }
                 })();
 
-                console.log('Current time:', now);
-                console.log('Order time:', orderDate);
-                console.log('Time condition met:', timeCondition);
-
-
                 // Filter by order status
                 const statusCondition = (() => {
                     switch (statusFilters) {
