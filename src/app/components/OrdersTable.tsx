@@ -51,9 +51,8 @@ import ShipDialog from './ShipDialog'
 import { toast } from 'sonner'
 
 const OrdersTable =
-    ({ orders, lastWeekSales, lastMonthSales, weekChange, monthChange, refetchOrders }:
-        { orders: OrderProps[], lastWeekSales: string, lastMonthSales: string, weekChange: number, 
-        monthChange: number, refetchOrders: () => void }) => {
+    ({ orders, lastWeekSales, lastMonthSales, weekChange, monthChange }:
+        { orders: OrderProps[], lastWeekSales: string, lastMonthSales: string, weekChange: number, monthChange: number }) => {
 
         const [ordersList, setOrdersList] = useState<OrderProps[]>([]);
         const [selectedOrder, setSelectedOrder] = useState<OrderProps | null>(null)
@@ -62,11 +61,18 @@ const OrdersTable =
         const [statusFilters, setStatusFilters] = useState<'all' | 'shipped' | 'unshipped' | null>('all')
 
         useEffect(() => {
+
             if (orders && orders.length > 0) {
                 setOrdersList(orders)
                 setSelectedOrder(orders[0])
             }
         }, [orders])
+
+        const refetchOrders = async () => {
+            const data = await fetch('https://cartlon.vercel.app/api/orders', { cache: "no-store" });
+            const updatedOrders: OrderProps[] = await data.json();
+            setOrdersList(updatedOrders);
+          };
 
         useEffect(() => {
             const now = new Date();
