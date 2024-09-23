@@ -51,8 +51,9 @@ import ShipDialog from './ShipDialog'
 import { toast } from 'sonner'
 
 const OrdersTable =
-    ({ orders, lastWeekSales, lastMonthSales, weekChange, monthChange }:
-        { orders: OrderProps[], lastWeekSales: string, lastMonthSales: string, weekChange: number, monthChange: number }) => {
+    ({ orders, lastWeekSales, lastMonthSales, weekChange, monthChange, refetchOrders }:
+        { orders: OrderProps[], lastWeekSales: string, lastMonthSales: string, weekChange: number, 
+        monthChange: number, refetchOrders: () => void }) => {
 
         const [ordersList, setOrdersList] = useState<OrderProps[]>([]);
         const [selectedOrder, setSelectedOrder] = useState<OrderProps | null>(null)
@@ -496,7 +497,7 @@ const OrdersTable =
                                             </CardTitle>
                                         </>) :
                                     (
-                                        <ShipDialog order={selectedOrder} />
+                                        <ShipDialog refetchOrders={refetchOrders} order={selectedOrder} />
                                     )
                                 }
                             </div>

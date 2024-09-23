@@ -16,7 +16,7 @@ import { OrderProps } from "@/types"
 import { useState } from "react"
 import { toast } from "sonner";
 
-export default function ShipDialog({ order }: { order: OrderProps }) {
+export default function ShipDialog({ order, refetchOrders }: { order: OrderProps, refetchOrders: () => void }) {
 
     const [tracking, setTracking] = useState('')
     const [isLoading, setIsLoading] = useState(false)
@@ -41,6 +41,8 @@ export default function ShipDialog({ order }: { order: OrderProps }) {
             if (!res.ok) {
                 throw new Error("failed shipment")
             }
+
+            refetchOrders()
             
         } catch (error) {
             console.log(error)
