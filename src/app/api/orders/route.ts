@@ -22,7 +22,7 @@ export async function GET() {
 
 }
 
-export async function PUT(req: NextRequest) {
+export async function PATCH(req: NextRequest) {
 
     const body = await req.json();
 

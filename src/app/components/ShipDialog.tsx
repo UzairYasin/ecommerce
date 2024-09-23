@@ -26,8 +26,8 @@ export default function ShipDialog({ order }: { order: OrderProps }) {
 
         setIsLoading(true)
         try {
-            const res = await fetch("/api/orders", {
-                method: "PUT",
+            const res = await fetch("https://cartlon.vercel.app/api/orders", {
+                method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
                 },
