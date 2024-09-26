@@ -143,7 +143,7 @@ const NavbarMenu = ({ session, signOut }: { session: any, signOut: any }) => {
                         <NavigationMenuList>
                             <NavigationMenuItem>
                                 <NavigationMenuTrigger className="px-3 md:text-lg md:my-0 my-2 text-2xl md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" >
-                                    Components
+                                    Categories
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent className='mt-2 lg:w-[700px]'
                                     >
